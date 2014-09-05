@@ -1,0 +1,6 @@
+name = "App-cpanoutdated-coro"
+# badges = ["travis"]
+authority="cpan:KPEE"
+
+module_maker="ModuleBuildTiny"
+no_github_issues=true
