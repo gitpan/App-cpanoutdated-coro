@@ -1,4 +1,4 @@
-#!C:\strawberry\perl\bin\perl.exe
+#!/usr/bin/perl
 ### START: scalar(localtime)
 
 # below requires for original cpan-outdated
@@ -23,7 +23,7 @@ use Coro;
 use Coro::Channel;
 use Coro::Handle;
 
-our $VERSION = "0.0.1";
+our $VERSION = "0.02";
 
 $| = 1;
 
@@ -65,18 +65,17 @@ my @found;
 my $rule = File::Find::Rule->new;
 $rule = $rule->new->relative->maxdepth($depth)->or(
     $rule->new->directory->or(
-        $rule->new->name('auto')->prune,
-        $rule->new->name(qr/^(?:\.|\w+)$/),
+        $rule->new->name('auto')->prune, $rule->new->name(qr/^(?:\.|\w+)$/),
         $rule->new->prune
     ),
     $rule->new->name('*.pm')
 );
-push @found, $rule->in($_) for @libpath;
+
+for my $p (@libpath) {
+    push @found, map lc(), $rule->in($p);
+}
 @prev_path{@found} = (1) x @found;
 ### prev_path: @found+0
-
-undef $rule;
-undef @found;
 
 ### mktemp
 my $tmpfile = File::Temp->new( UNLINK => 1, SUFFIX => '.gz' );
@@ -142,7 +141,7 @@ sub _parse_gz {
             if $dist =~ m{/perl-[0-9._]+\.tar\.(gz|bz2)$};
         my @a = split '::', $pkg . '.pm', $depth + 1;
         pop @a if @a > $depth;
-        next unless $prev_path{ join( '/', @a ) };
+        next unless $prev_path{ lc( join( '/', @a ) ) };
         $ch{scan}->put( [ $pkg, $version, $dist ] );
     }
     $ch{scan}->shutdown;
@@ -402,3 +401,5 @@ This library is free software; you can redistribute it and/or modify it under th
 L<App::cpanoutdated>
 
 =cut
+
+__END__

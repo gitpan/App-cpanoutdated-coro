@@ -3,7 +3,7 @@ use 5.008001;
 use strict;
 use warnings;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 1;
 __END__
@@ -16,7 +16,7 @@ App::cpanoutdated::coro - faster C<cpan-outdated> using a little more resources
 
 =head1 DESCRIPTION
 
-see $L<cpan-outdated-coro>
+see L<cpan-outdated-coro>
 
 =head1 LICENSE
 

@@ -4,7 +4,7 @@ App::cpanoutdated::coro - faster `cpan-outdated` using a little more resources
 
 # DESCRIPTION
 
-see $[cpan-outdated-coro](https://metacpan.org/pod/cpan-outdated-coro)
+see [cpan-outdated-coro](https://metacpan.org/pod/cpan-outdated-coro)
 
 # LICENSE
 
