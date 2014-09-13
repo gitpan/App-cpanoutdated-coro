@@ -58,11 +58,11 @@
    "provides" : {
       "App::cpanoutdated::coro" : {
          "file" : "lib/App/cpanoutdated/coro.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       }
    },
    "release_status" : "stable",
-   "version" : "0.02",
+   "version" : "0.03",
    "x_authority" : "cpan:KPEE",
    "x_contributors" : [
       "KPEE <kpee.cpan@gmail.com>"

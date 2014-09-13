@@ -25,7 +25,7 @@ no_index:
 provides:
   App::cpanoutdated::coro:
     file: lib/App/cpanoutdated/coro.pm
-    version: '0.02'
+    version: '0.03'
 requires:
   CPAN::DistnameInfo: '0.1'
   Coro: '0'
@@ -37,7 +37,7 @@ requires:
   local::lib: '1.006008'
   perl: '5.008001'
   version: '0'
-version: '0.02'
+version: '0.03'
 x_authority: cpan:KPEE
 x_contributors:
   - 'KPEE <kpee.cpan@gmail.com>'
